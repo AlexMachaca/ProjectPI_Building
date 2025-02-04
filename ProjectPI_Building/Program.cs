@@ -1,3 +1,5 @@
+using ProjectPI_Building.Forms_Search;
+
 namespace ProjectPI_Building
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace ProjectPI_Building
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Frm_Template_Search());
+            Application.Run(new Frm_Empresa_Search());
         }
     }
 }
