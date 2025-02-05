@@ -10,7 +10,12 @@ namespace ProjectPI_Building.Servicios
 {
     internal class Connection_Compra
     {
-        private string connectionString = "Server=ROG\\SQLEXPRESS;Database=BDBuilding3;User ID=sa;Password=1111;Encrypt=False;";
+        private string connectionString;
+        public Connection_Compra()
+        {
+            // Obtener la cadena de conexión desde AppConfig
+            connectionString = AppConfig.ConnectionString;
+        }
 
         public bool InsertarCompra(CCompra compra)
         {

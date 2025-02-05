@@ -116,11 +116,10 @@
         }
 
         #endregion
-
-        private Label label1;
         public PictureBox btn_salir;
         public PictureBox btn_exit;
         public PictureBox btn_maximizar;
         public PictureBox btn_minimizar;
+        public Label label1;
     }
 }

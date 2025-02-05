@@ -13,7 +13,13 @@ namespace ProjectPI_Building.Servicios
 
     internal class Connection_Proveedor
     {
-        private string connectionString = "Server=ROG\\SQLEXPRESS;Database=BDBuilding3;User ID=sa;Password=1111;Encrypt=False;";
+        private string connectionString;
+
+        public Connection_Proveedor()
+        {
+            // Obtener la cadena de conexión desde AppConfig
+            connectionString = AppConfig.ConnectionString;
+        }
 
         public DataSet fillProveedor()
         {
@@ -92,7 +98,7 @@ namespace ProjectPI_Building.Servicios
             return rowaffected;
         }
 
-        public int delete_proveedor(string idProveedor)
+        public int delete_proveedor(int idProveedor)
         {
             int rowaffected = 0;
             try
@@ -121,12 +127,12 @@ namespace ProjectPI_Building.Servicios
             return rowaffected; // Retorna el número de filas afectadas
         }
 
-        public int count_product()
+        public int count_proveedor()
         {
             int count = 0;
             try
             {
-                string query = "SSELECT TOP 1 idProveedor +1 FROM Proveedor ORDER BY idProveedor DESC;";
+                string query = "SELECT TOP 1 idProveedor +1 FROM Proveedor ORDER BY idProveedor DESC;";
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();

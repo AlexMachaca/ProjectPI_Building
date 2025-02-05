@@ -15,6 +15,9 @@ namespace ProjectPI_Building.Servicios
         // Expresión regular para validar URL (cualquier página web)
         private static readonly Regex urlRegex = new Regex(@"^(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]*)?$");
 
+        // Expresión regular para validar pasaporte (cualquier pasaporte)
+        private static readonly Regex pasaporteRegex = new Regex(@"^[A-Z]{3}[0-9]{6}[A-Z]?$");
+
         public static bool ValidarRUC(string ruc)
         {
             return rucRegex.IsMatch(ruc);
@@ -23,6 +26,28 @@ namespace ProjectPI_Building.Servicios
         public static bool ValidarURL(string url)
         {
             return urlRegex.IsMatch(url);
+        }
+        public static bool ValidarPasaporte(string pasaporte)
+        {
+            return pasaporteRegex.IsMatch(pasaporte);
+        }
+
+        public static bool ValidarCelular(string celular)
+        {
+            Regex regexCelular = new Regex(@"^\d{9}$");
+            return regexCelular.IsMatch(celular);
+        }
+
+        public static bool ValidarCorreo(string correo)
+        {
+            Regex regexCorreo = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return regexCorreo.IsMatch(correo);
+        }
+
+        public static bool ValidarDNI(string dni)
+        {
+            Regex regexDNI = new Regex(@"^\d{8}$");
+            return regexDNI.IsMatch(dni);
         }
     }
 }

@@ -15,9 +15,9 @@ namespace ProjectPI_Building.Clases
         public string Unidad { get; set; }
         public int? Cantidad { get; set; } // Nullable para permitir valores nulos
         public int? Stock { get; set; }    // Nullable para permitir valores nulos
-        public decimal? PrecioCompra { get; set; } // Nullable para permitir valores nulos
-        public decimal? PrecioVenta { get; set; }  // Nullable para permitir valores nulos
-        public decimal? PrecioUnitario { get; set; } // Nullable para permitir valores nulos
+        public float? PrecioCompra { get; set; } // Nullable para permitir valores nulos
+        public float? PrecioVenta { get; set; }  // Nullable para permitir valores nulos
+        public float? PrecioUnitario { get; set; } // Nullable para permitir valores nulos
         public DateTime FechaActualizacion { get; set; } // Nullable para permitir valores nulos
 
         // Constructor vacío
@@ -27,7 +27,7 @@ namespace ProjectPI_Building.Clases
         }
 
         // Constructor con parámetros (opcional)
-        public CProducto(int idProducto, string categoria, string descripcion, string unidad, int? cantidad, int? stock, decimal? precioCompra, decimal? precioVenta, decimal? precioUnitario, DateTime fechaActualizacion)
+        public CProducto(int idProducto, string categoria, string descripcion, string unidad, int? cantidad, int? stock, float? precioCompra, float? precioVenta, float? precioUnitario, DateTime fechaActualizacion)
         {
             IdProducto = idProducto;
             Categoria = categoria;

@@ -11,7 +11,13 @@ namespace ProjectPI_Building.Servicios
 {
     internal class Connection_Producto
     {
-        private string connectionString = "Server=ROG\\SQLEXPRESS;Database=BDBuilding3;User ID=sa;Password=1111;Encrypt=False;";
+        private string connectionString;
+
+        public Connection_Producto()
+        {
+            // Obtener la cadena de conexión desde AppConfig
+            connectionString = AppConfig.ConnectionString;
+        }
         public DataSet fillProducto()
         {
             DataSet dataSet = new DataSet();
