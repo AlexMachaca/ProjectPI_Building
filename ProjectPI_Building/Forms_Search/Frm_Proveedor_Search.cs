@@ -19,7 +19,11 @@ namespace ProjectPI_Building.Forms_Search
     {
         private string connectionString;
         public int fila = 0;
+        public int fila2 = 0;
         public CProveedor proveedor = new CProveedor();
+
+        public CProveedor ProveedorSeleccionado { get; internal set; }
+
         public Frm_Proveedor_Search()
         {
             InitializeComponent();
@@ -172,6 +176,25 @@ namespace ProjectPI_Building.Forms_Search
         {
             string searchTerm = txt_filtrar.Text.Trim(); // Obtener el texto del cuadro de búsqueda
             LlenarFiltroDataGridView(searchTerm); // Llamar a la función para filtrar
+        }
+
+        private void dgv_proveedores_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                fila2 = e.RowIndex;
+                ProveedorSeleccionado = new CProveedor
+                {
+                    IdProveedor = int.Parse(dgv_proveedores[0, fila2].Value.ToString()),
+                    TipoDocumento = dgv_proveedores[1, fila2].Value.ToString(),
+                    NroDocumento = dgv_proveedores[2, fila2].Value.ToString(),
+                    Nombre = dgv_proveedores[3, fila2].Value.ToString(),
+                    Direccion = dgv_proveedores[4, fila2].Value.ToString(),
+                    Celular = dgv_proveedores[5, fila2].Value.ToString(),
+                    CorreoElectronico = dgv_proveedores[6, fila2].Value.ToString()
+                };
+                this.DialogResult = DialogResult.OK;
+            }
         }
     }
 }

@@ -19,7 +19,11 @@ namespace ProjectPI_Building.Forms_Search
     {
         private string connectionString;
         public int fila = 0;
+        public int fila2 = 0;
         public CProducto producto = new CProducto();
+
+        public CProducto ProductoSeleccionado { get; internal set; }
+
         public Frm_Producto_Search()
         {
             InitializeComponent();
@@ -181,9 +185,27 @@ namespace ProjectPI_Building.Forms_Search
             }
         }
 
-        private void dgv_productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_productos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                fila2 = e.RowIndex;
+                ProductoSeleccionado = new CProducto
+                {
+                    IdProducto = int.Parse(dgv_productos[0, fila2].Value.ToString()),
+                    Categoria = dgv_productos[1, fila2].Value.ToString(),
+                    Descripcion = dgv_productos[2, fila2].Value.ToString(),
+                    Unidad = dgv_productos[3, fila2].Value.ToString(),
+                    Cantidad = int.Parse(dgv_productos[4, fila2].Value.ToString()),
+                    Stock = int.Parse(dgv_productos[5, fila2].Value.ToString()),
+                    PrecioCompra = float.Parse(dgv_productos[6, fila2].Value.ToString()),
+                    PrecioVenta = float.Parse(dgv_productos[7, fila2].Value.ToString()),
+                    PrecioUnitario = float.Parse(dgv_productos[8, fila2].Value.ToString()),
+                    FechaActualizacion = DateTime.Parse(dgv_productos[9, fila2].Value.ToString())
+                };
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

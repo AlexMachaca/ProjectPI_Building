@@ -1,4 +1,5 @@
 using System.Globalization;
+using ProjectPI_Building.Forms_Register;
 using ProjectPI_Building.Forms_Search;
 
 namespace ProjectPI_Building
@@ -15,7 +16,7 @@ namespace ProjectPI_Building
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Frm_Proveedor_Search());
+            Application.Run(new Frm_Compra_Producto());
         }
     }
 }

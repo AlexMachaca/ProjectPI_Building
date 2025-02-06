@@ -101,6 +101,7 @@
             dgv_proveedores.Size = new Size(1003, 401);
             dgv_proveedores.TabIndex = 10;
             dgv_proveedores.CellMouseClick += dgv_proveedores_CellMouseClick;
+            dgv_proveedores.CellMouseDoubleClick += dgv_proveedores_CellMouseDoubleClick;
             // 
             // Frm_Proveedor_Search
             // 

@@ -60,8 +60,8 @@
             dgv_productos.RowHeadersWidth = 51;
             dgv_productos.Size = new Size(1003, 401);
             dgv_productos.TabIndex = 5;
-            dgv_productos.CellContentClick += dgv_productos_CellContentClick;
             dgv_productos.CellMouseClick += dgv_productos_CellMouseClick;
+            dgv_productos.CellMouseDoubleClick += dgv_productos_CellMouseDoubleClick;
             // 
             // txt_filtrar
             // 
