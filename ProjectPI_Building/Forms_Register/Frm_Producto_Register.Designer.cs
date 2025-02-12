@@ -60,7 +60,7 @@
             // 
             // label1
             // 
-            label1.Location = new Point(328, 13);
+            label1.Location = new Point(62, 27);
             label1.Size = new Size(311, 34);
             label1.Text = "Registro de Producto";
             // 
@@ -102,7 +102,7 @@
             groupBox1.Controls.Add(txt_descripcion);
             groupBox1.Controls.Add(txt_id);
             groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(44, 134);
+            groupBox1.Location = new Point(53, 254);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(951, 297);
             groupBox1.TabIndex = 6;

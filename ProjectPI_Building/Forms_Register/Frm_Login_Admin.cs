@@ -13,6 +13,8 @@ namespace ProjectPI_Building.Forms_Register
 {
     public partial class Frm_Login_Admin : Form
     {
+        public string NameUser { get; set; }
+
         private string connectionString;
         public Frm_Login_Admin()
         {
@@ -53,10 +55,8 @@ namespace ProjectPI_Building.Forms_Register
 
                     if (count > 0)
                     {
-                        MessageBox.Show("Inicio de sesión exitoso.");
-                        // Aquí puedes redirigir al usuario a la siguiente pantalla o realizar otra acción
-                        Frm_Compra_Producto frm_Compra_Producto = new Frm_Compra_Producto();
-                        frm_Compra_Producto.Show();
+                        DialogResult = DialogResult.OK;
+                        NameUser = usuario;
                         this.Close();
                     }
                     else
@@ -88,7 +88,8 @@ namespace ProjectPI_Building.Forms_Register
 
         private void btn_regresar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

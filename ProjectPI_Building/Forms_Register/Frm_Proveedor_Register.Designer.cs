@@ -54,27 +54,28 @@
             // 
             // label1
             // 
-            label1.Location = new Point(278, 13);
+            label1.Location = new Point(46, 22);
             label1.Size = new Size(328, 34);
             label1.Text = "Registro de Proveedor";
             // 
             // btn_salir
             // 
-            btn_salir.Location = new Point(839, 675);
+            btn_salir.Location = new Point(889, 681);
+            btn_salir.Size = new Size(117, 60);
             // 
             // btn_guardar
             // 
             btn_guardar.BackColor = Color.Transparent;
-            btn_guardar.Location = new Point(648, 675);
+            btn_guardar.Location = new Point(769, 678);
             btn_guardar.Name = "btn_guardar";
-            btn_guardar.Size = new Size(156, 62);
+            btn_guardar.Size = new Size(122, 62);
             btn_guardar.TabIndex = 8;
             btn_guardar.TabStop = false;
             btn_guardar.Click += btn_guardar_Click;
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.PaleGreen;
+            groupBox1.BackColor = Color.Gainsboro;
             groupBox1.Controls.Add(cb_tipo_doc);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label8);
@@ -90,9 +91,9 @@
             groupBox1.Controls.Add(txt_nro_doc);
             groupBox1.Controls.Add(txt_id);
             groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(209, 175);
+            groupBox1.Location = new Point(197, 175);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(570, 352);
+            groupBox1.Size = new Size(595, 329);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos de Proveedor";

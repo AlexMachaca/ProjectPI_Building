@@ -149,5 +149,32 @@ namespace ProjectPI_Building.Servicios
             }
             return count;
         }
+
+        public DataSet Producto_por_categoria(string categoria)
+        {
+            DataSet dataSet = new DataSet();
+            try
+            {
+                // Construir la consulta SQL parametrizada
+                string query = @"SELECT idProducto,descripcion,unidad,cantidad,stock,preciocompra,precioventa,preciounitario FROM Producto WHERE categoria=@categoria";
+
+                // Conexión y llenado del DataSet
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    // Añadir parámetros
+                    command.Parameters.AddWithValue("@categoria", categoria);
+
+                    adapter.Fill(dataSet, "ProductoCategoria");
+                }
+                return dataSet;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error cargando datos: {ex.Message}");
+                return null;
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Globalization;
 using ProjectPI_Building.Forms_Register;
+using ProjectPI_Building.Forms_Reportes;
 using ProjectPI_Building.Forms_Search;
 
 namespace ProjectPI_Building

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Recibos de Compra</title>
+</head>
+<body style="font-family: Arial, sans-serif; font-size: 12px; color: #333;">
+    <div style="width: 80%; margin: 20px auto; border: 1px solid #ccc; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <header style="text-align: center; margin-bottom: 20px;">
+            <h1 style="font-size: 2em; color: #0056b3; margin-bottom: 10px;">Reporte de Recibos de Compra</h1>
+            <p style="font-size: 1.2em; color: #666; margin: 0;">Tipo de Recibo: <span id="tipo-recibo"></span></p>
+            <p style="font-size: 1em; color: #666; margin: 0;">Fecha de Inicio: <span id="fecha-inicio"></span> - Fecha de Fin: <span id="fecha-fin"></span></p>
+        </header>
+
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left; font-weight: bold;">Nro. Compra</th>
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left; font-weight: bold;">Nombre Proveedor</th>
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left; font-weight: bold;">Documento</th>
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left; font-weight: bold;">Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-recibos">
+                <!-- Aquí se insertarán las filas dinámicamente -->
+            </tbody>
+        </table>
+
+        <footer style="text-align: center; font-style: italic; margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; color: #777;">
+            Generado el <span id="fecha-generacion"></span>
+        </footer>
+    </div>
+</body>
+</html>

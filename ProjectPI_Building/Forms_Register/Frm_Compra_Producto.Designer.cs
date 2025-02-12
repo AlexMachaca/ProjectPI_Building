@@ -53,6 +53,7 @@
             btn_filtrar_producto = new PictureBox();
             btn_imprimir = new PictureBox();
             btn_eliminar = new PictureBox();
+            btn_guardar_DB = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)btn_salir).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_guardar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_exit).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)btn_filtrar_producto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_imprimir).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_eliminar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_guardar_DB).BeginInit();
             SuspendLayout();
             // 
             // btn_salir
@@ -80,9 +82,9 @@
             // btn_guardar
             // 
             btn_guardar.BackColor = Color.Transparent;
-            btn_guardar.Location = new Point(831, 336);
+            btn_guardar.Location = new Point(833, 336);
             btn_guardar.Name = "btn_guardar";
-            btn_guardar.Size = new Size(52, 52);
+            btn_guardar.Size = new Size(44, 52);
             btn_guardar.TabIndex = 1;
             btn_guardar.TabStop = false;
             btn_guardar.Click += btn_guardar_Click;
@@ -123,7 +125,7 @@
             dgv_Recibo_Compra.AllowUserToDeleteRows = false;
             dgv_Recibo_Compra.BackgroundColor = Color.RosyBrown;
             dgv_Recibo_Compra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Recibo_Compra.Location = new Point(75, 509);
+            dgv_Recibo_Compra.Location = new Point(74, 506);
             dgv_Recibo_Compra.Name = "dgv_Recibo_Compra";
             dgv_Recibo_Compra.ReadOnly = true;
             dgv_Recibo_Compra.RowHeadersWidth = 51;
@@ -134,19 +136,20 @@
             // cb_proveedor
             // 
             cb_proveedor.FormattingEnabled = true;
-            cb_proveedor.Location = new Point(247, 164);
+            cb_proveedor.Location = new Point(267, 164);
             cb_proveedor.Name = "cb_proveedor";
-            cb_proveedor.Size = new Size(559, 28);
+            cb_proveedor.Size = new Size(565, 28);
             cb_proveedor.TabIndex = 6;
             // 
             // cb_tipo_recibo
             // 
             cb_tipo_recibo.FormattingEnabled = true;
             cb_tipo_recibo.Items.AddRange(new object[] { "Boleta", "Factura" });
-            cb_tipo_recibo.Location = new Point(255, 212);
+            cb_tipo_recibo.Location = new Point(213, 210);
             cb_tipo_recibo.Name = "cb_tipo_recibo";
             cb_tipo_recibo.Size = new Size(150, 28);
             cb_tipo_recibo.TabIndex = 7;
+            cb_tipo_recibo.SelectedIndexChanged += cb_tipo_recibo_SelectedIndexChanged;
             // 
             // txt_id_recibo
             // 
@@ -160,23 +163,23 @@
             // dtp_fecha_registro
             // 
             dtp_fecha_registro.Format = DateTimePickerFormat.Short;
-            dtp_fecha_registro.Location = new Point(863, 217);
+            dtp_fecha_registro.Location = new Point(854, 217);
             dtp_fecha_registro.Name = "dtp_fecha_registro";
-            dtp_fecha_registro.Size = new Size(151, 27);
+            dtp_fecha_registro.Size = new Size(160, 27);
             dtp_fecha_registro.TabIndex = 9;
             // 
             // cb_producto
             // 
             cb_producto.FormattingEnabled = true;
-            cb_producto.Location = new Point(247, 262);
+            cb_producto.Location = new Point(255, 292);
             cb_producto.Name = "cb_producto";
-            cb_producto.Size = new Size(556, 28);
+            cb_producto.Size = new Size(570, 28);
             cb_producto.TabIndex = 10;
             cb_producto.SelectedIndexChanged += cb_producto_SelectedIndexChanged;
             // 
             // txt_descripcion
             // 
-            txt_descripcion.Location = new Point(255, 343);
+            txt_descripcion.Location = new Point(255, 341);
             txt_descripcion.Multiline = true;
             txt_descripcion.Name = "txt_descripcion";
             txt_descripcion.ReadOnly = true;
@@ -203,7 +206,7 @@
             // 
             // txt_cantidad
             // 
-            txt_cantidad.Location = new Point(844, 394);
+            txt_cantidad.Location = new Point(869, 393);
             txt_cantidad.Multiline = true;
             txt_cantidad.Name = "txt_cantidad";
             txt_cantidad.Size = new Size(136, 41);
@@ -216,10 +219,11 @@
             txt_precio_compra.Name = "txt_precio_compra";
             txt_precio_compra.Size = new Size(162, 41);
             txt_precio_compra.TabIndex = 15;
+            txt_precio_compra.TextChanged += txt_precio_compra_TextChanged;
             // 
             // txt_precio_venta
             // 
-            txt_precio_venta.Location = new Point(563, 441);
+            txt_precio_venta.Location = new Point(563, 443);
             txt_precio_venta.Multiline = true;
             txt_precio_venta.Name = "txt_precio_venta";
             txt_precio_venta.Size = new Size(150, 41);
@@ -227,7 +231,7 @@
             // 
             // txt_precio_unitario
             // 
-            txt_precio_unitario.Location = new Point(860, 442);
+            txt_precio_unitario.Location = new Point(883, 442);
             txt_precio_unitario.Multiline = true;
             txt_precio_unitario.Name = "txt_precio_unitario";
             txt_precio_unitario.ReadOnly = true;
@@ -237,7 +241,7 @@
             // btn_filtrar_proveedor
             // 
             btn_filtrar_proveedor.BackColor = Color.Transparent;
-            btn_filtrar_proveedor.Location = new Point(817, 146);
+            btn_filtrar_proveedor.Location = new Point(838, 147);
             btn_filtrar_proveedor.Name = "btn_filtrar_proveedor";
             btn_filtrar_proveedor.Size = new Size(52, 55);
             btn_filtrar_proveedor.TabIndex = 18;
@@ -247,7 +251,7 @@
             // btn_registrar_proveedor
             // 
             btn_registrar_proveedor.BackColor = Color.Transparent;
-            btn_registrar_proveedor.Location = new Point(875, 146);
+            btn_registrar_proveedor.Location = new Point(896, 147);
             btn_registrar_proveedor.Name = "btn_registrar_proveedor";
             btn_registrar_proveedor.Size = new Size(52, 55);
             btn_registrar_proveedor.TabIndex = 19;
@@ -257,7 +261,7 @@
             // btn_registrar_producto
             // 
             btn_registrar_producto.BackColor = Color.Transparent;
-            btn_registrar_producto.Location = new Point(871, 250);
+            btn_registrar_producto.Location = new Point(888, 275);
             btn_registrar_producto.Name = "btn_registrar_producto";
             btn_registrar_producto.Size = new Size(52, 55);
             btn_registrar_producto.TabIndex = 21;
@@ -267,7 +271,7 @@
             // btn_filtrar_producto
             // 
             btn_filtrar_producto.BackColor = Color.Transparent;
-            btn_filtrar_producto.Location = new Point(813, 250);
+            btn_filtrar_producto.Location = new Point(830, 275);
             btn_filtrar_producto.Name = "btn_filtrar_producto";
             btn_filtrar_producto.Size = new Size(52, 55);
             btn_filtrar_producto.TabIndex = 20;
@@ -287,12 +291,22 @@
             // btn_eliminar
             // 
             btn_eliminar.BackColor = Color.Transparent;
-            btn_eliminar.Location = new Point(1011, 528);
+            btn_eliminar.Location = new Point(883, 336);
             btn_eliminar.Name = "btn_eliminar";
-            btn_eliminar.Size = new Size(118, 54);
+            btn_eliminar.Size = new Size(44, 52);
             btn_eliminar.TabIndex = 23;
             btn_eliminar.TabStop = false;
             btn_eliminar.Click += btn_eliminar_Click;
+            // 
+            // btn_guardar_DB
+            // 
+            btn_guardar_DB.BackColor = Color.Transparent;
+            btn_guardar_DB.Location = new Point(1008, 524);
+            btn_guardar_DB.Name = "btn_guardar_DB";
+            btn_guardar_DB.Size = new Size(121, 51);
+            btn_guardar_DB.TabIndex = 24;
+            btn_guardar_DB.TabStop = false;
+            btn_guardar_DB.Click += btn_guardar_DB_Click;
             // 
             // Frm_Compra_Producto
             // 
@@ -301,6 +315,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1155, 767);
+            Controls.Add(btn_guardar_DB);
             Controls.Add(btn_eliminar);
             Controls.Add(btn_imprimir);
             Controls.Add(btn_registrar_producto);
@@ -344,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)btn_filtrar_producto).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_imprimir).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_eliminar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_guardar_DB).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -374,5 +390,6 @@
         private PictureBox btn_filtrar_producto;
         private PictureBox btn_imprimir;
         private PictureBox btn_eliminar;
+        private PictureBox btn_guardar_DB;
     }
 }
