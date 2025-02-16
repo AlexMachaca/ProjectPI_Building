@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using iText.Html2pdf;
 using iText.IO.Font;
 using iText.Kernel.Font;
+using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
@@ -27,7 +28,7 @@ namespace ProjectPI_Building.Forms_Register
     {
         //VENTANA
         private bool isDragging = false;
-        private Point startPoint;
+        private System.Drawing.Point startPoint;
 
         CReciboCompra compra = new CReciboCompra();
         //Lista de idRebicocompra
@@ -178,7 +179,7 @@ namespace ProjectPI_Building.Forms_Register
             if (e.Button == MouseButtons.Left)
             {
                 isDragging = true;
-                startPoint = new Point(e.X, e.Y);//Registrar el punto de inicio
+                startPoint = new System.Drawing.Point(e.X, e.Y);//Registrar el punto de inicio
             }
         }
 
@@ -190,7 +191,7 @@ namespace ProjectPI_Building.Forms_Register
             {
                 //Calcular nueva posicion del formulario
                 //Point newLocation = new Point(this.Left + e.X - startPoint.X, this.Top + e.Y - startPoint.Y);
-                Point newPosition = this.Location;
+                System.Drawing.Point newPosition = this.Location;
                 newPosition.X += e.X - startPoint.X;
                 newPosition.Y += e.Y - startPoint.Y;
                 this.Location = newPosition;
@@ -552,7 +553,7 @@ namespace ProjectPI_Building.Forms_Register
             Frm_Producto_Search frm_Producto_Search = new Frm_Producto_Search();
             if (frm_Producto_Search.ShowDialog() == DialogResult.OK)
             {
-                CProducto producto = frm_Producto_Search.ProductoSeleccionado;
+                CProducto1 producto = frm_Producto_Search.ProductoSeleccionado;
                 if (producto != null)
                 {
                     cb_producto.SelectedValue = producto.IdProducto;
@@ -629,7 +630,7 @@ namespace ProjectPI_Building.Forms_Register
                 Document document = new Document(pdf);
 
                 // Configurar la fuente
-                string FONT = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+                string FONT = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
                 PdfFont font = PdfFontFactory.CreateFont(FONT, PdfEncodings.IDENTITY_H);
                 PdfFont boldFont = PdfFontFactory.CreateFont(FONT, PdfEncodings.IDENTITY_H, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED); // Fuente en negrita
 
@@ -700,7 +701,7 @@ namespace ProjectPI_Building.Forms_Register
                 string htmlFactura = GenerarHtmlFactura(NroRecibo);
 
                 // Especificar la ruta de guardado para el PDF
-                string rutaPdf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"Factura_{NroRecibo}.pdf");
+                string rutaPdf = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"Factura_{NroRecibo}.pdf");
 
                 // Generar el PDF desde el HTML
                 if (GenerarPdfDesdeHtml(htmlFactura, rutaPdf))
@@ -916,6 +917,7 @@ namespace ProjectPI_Building.Forms_Register
             }
         }
 
+
         public string GenerarHtmlFactura(string nroCompra)
         {
             Connection_Compra connectionCompra = new Connection_Compra();
@@ -984,11 +986,18 @@ namespace ProjectPI_Building.Forms_Register
                 // Configurar las propiedades de conversión (opcional)
                 ConverterProperties converterProperties = new ConverterProperties();
 
-                // Crear el documento PDF
+                // Definir el tamaño de la página (ancho: 150mm, alto: 80mm) - ORIENTACIÓN HORIZONTAL
+                float anchoEnPuntos = 150 * 2.83465f;
+                float altoEnPuntos = 80 * 2.83465f;
+                PageSize pageSize = new PageSize(anchoEnPuntos, altoEnPuntos);
+
+                // Crear el documento PDF con el tamaño de página especificado
                 using (FileStream pdfStream = new FileStream(outputPath, FileMode.Create))
                 {
                     PdfWriter writer = new PdfWriter(pdfStream);
                     PdfDocument pdfDocument = new PdfDocument(writer);
+                    pdfDocument.SetDefaultPageSize(pageSize); // Establecer el tamaño de página por defecto
+                    Document document = new Document(pdfDocument);
 
                     // Convertir el HTML a PDF
                     if (pdfDocument != null && converterProperties != null)

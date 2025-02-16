@@ -20,9 +20,9 @@ namespace ProjectPI_Building.Forms_Search
         private string connectionString;
         public int fila = 0;
         public int fila2 = 0;
-        public CProducto producto = new CProducto();
+        public CProducto1 producto = new CProducto1();
 
-        public CProducto ProductoSeleccionado { get; internal set; }
+        public CProducto1 ProductoSeleccionado { get; internal set; }
 
         public Frm_Producto_Search()
         {
@@ -190,7 +190,7 @@ namespace ProjectPI_Building.Forms_Search
             if (e.RowIndex >= 0)
             {
                 fila2 = e.RowIndex;
-                ProductoSeleccionado = new CProducto
+                ProductoSeleccionado = new CProducto1
                 {
                     IdProducto = int.Parse(dgv_productos[0, fila2].Value.ToString()),
                     Categoria = dgv_productos[1, fila2].Value.ToString(),

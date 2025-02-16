@@ -8,27 +8,12 @@ namespace ProjectPI_Building.Clases
 {
     public class CEmpresa
     {
-        // Propiedades
-        public string RUC { get; set; }
-        public string Nombre { get; set; }
-        public string PaginaWeb { get; set; }
-        public string Facebook { get; set; }
-        public string Youtube { get; set; }
+        string ruc, name, webpage, facebook, youtube;
 
-        // Constructor vacío
-        public CEmpresa()
-        {
-            // Inicialización opcional si se requiere
-        }
-
-        // Constructor con parámetros (opcional)
-        public CEmpresa(string ruc, string nombre, string paginaWeb, string facebook, string youtube)
-        {
-            RUC = ruc;
-            Nombre = nombre;
-            PaginaWeb = paginaWeb;
-            Facebook = facebook;
-            Youtube = youtube;
-        }
+        public string Ruc { get => ruc; set => ruc = value; }
+        public string Name { get => name; set => name = value; }
+        public string Webpage { get => webpage; set => webpage = value; }
+        public string Facebook { get => facebook; set => facebook = value; }
+        public string Youtube { get => youtube; set => youtube = value; }
     }
 }

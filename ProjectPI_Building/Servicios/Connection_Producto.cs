@@ -40,7 +40,7 @@ namespace ProjectPI_Building.Servicios
             }
         }
 
-        public int insert_producto(CProducto p)
+        public int insert_producto(CProducto1 p)
         {
             int rowaffected = 0;
             try
@@ -66,7 +66,7 @@ namespace ProjectPI_Building.Servicios
             return rowaffected;
         }
 
-        public int update_producto(CProducto p)
+        public int update_producto(CProducto1 p)
         {
             int rowaffected = 0;
             try

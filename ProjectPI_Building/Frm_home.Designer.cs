@@ -61,6 +61,7 @@
             btn_Venta.Size = new Size(166, 164);
             btn_Venta.TabIndex = 1;
             btn_Venta.TabStop = false;
+            btn_Venta.Click += btn_Venta_Click;
             // 
             // btn_salir
             // 
@@ -100,6 +101,7 @@
             btn_contacto.Size = new Size(160, 164);
             btn_contacto.TabIndex = 5;
             btn_contacto.TabStop = false;
+            btn_contacto.Click += btn_contacto_Click;
             // 
             // Frm_home
             // 

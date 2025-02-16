@@ -34,7 +34,7 @@ namespace ProjectPI_Building.Forms_Register
             txt_id.Text = count.ToString();
         }
 
-        public void filldata(CProducto producto)
+        public void filldata(CProducto1 producto)
         {
             txt_id.Text = producto.IdProducto.ToString();
             cb_categoria.SelectedItem = producto.Categoria;
@@ -123,7 +123,7 @@ namespace ProjectPI_Building.Forms_Register
             DateTime fechaactualizacion = dtp_fecha_actualizacion.Value;
                 
 
-            CProducto producto = new CProducto();
+            CProducto1 producto = new CProducto1();
             producto.IdProducto = id;
             producto.Categoria = categoria;
             producto.Descripcion = descripcion;

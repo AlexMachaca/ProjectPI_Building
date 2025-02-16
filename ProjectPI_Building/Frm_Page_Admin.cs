@@ -14,6 +14,9 @@ namespace ProjectPI_Building
 {
     public partial class Frm_Page_Admin : Form
     {
+        private bool isDragging = false;
+        private Point startPoint = new Point(0, 0);
+
         private string user;
         public Frm_Page_Admin(string userName)
         {
@@ -54,6 +57,53 @@ namespace ProjectPI_Building
         {
             Frm_Reporte_Recibo_Compra frm_reporte_compras = new Frm_Reporte_Recibo_Compra();
             frm_reporte_compras.ShowDialog();
+        }
+
+        private void btn_reporte_venta_Click(object sender, EventArgs e)
+        {
+            Frm_ReporteVentas frm_reporte_ventas = new Frm_ReporteVentas();
+            frm_reporte_ventas.ShowDialog();
+        }
+
+        private void btn_control_asistencia_Click(object sender, EventArgs e)
+        {
+            Frm_ControlAsistencia frm_control_asistencia = new Frm_ControlAsistencia();
+            frm_control_asistencia.ShowDialog();
+        }
+
+        private void btn_administracion_Click(object sender, EventArgs e)
+        {
+            Frm_Administracion frm_administracion = new Frm_Administracion();
+            frm_administracion.ShowDialog();
+        }
+
+        private void Frm_Page_Admin_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                startPoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void Frm_Page_Admin_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point currentScreenPosition = PointToScreen(e.Location);
+                Location = new Point(currentScreenPosition.X - startPoint.X, currentScreenPosition.Y - startPoint.Y);
+            }
+        }
+
+        private void Frm_Page_Admin_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+
+        private void bnt_remuneracion_Click(object sender, EventArgs e)
+        {
+            Frm_Remuneraciones frm_remuneraciones = new Frm_Remuneraciones();
+            frm_remuneraciones.ShowDialog();
         }
     }
 }

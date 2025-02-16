@@ -65,7 +65,7 @@ namespace ProjectPI_Building
 
         private void btn_Compra_Click(object sender, EventArgs e)
         {
-            Frm_Login_Admin frm_login=new Frm_Login_Admin();
+            Frm_Login_Admin frm_login = new Frm_Login_Admin();
             DialogResult result = frm_login.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -75,7 +75,7 @@ namespace ProjectPI_Building
                 //compraForm.ShowDialog();
                 //obtener el NameUser del login
                 string user = frm_login.NameUser;
-                
+
                 Frm_Page_Admin adminForm = new Frm_Page_Admin(user);
                 adminForm.ShowDialog();
 
@@ -86,6 +86,18 @@ namespace ProjectPI_Building
                 // Muestra un mensaje de error o realiza alguna otra acción
             }
             frm_login.Dispose(); // Importante: Liberar los recursos
+        }
+
+        private void btn_Venta_Click(object sender, EventArgs e)
+        {
+            Frm_VentadeProducto frm_VentadeProducto = new Frm_VentadeProducto();
+            frm_VentadeProducto.ShowDialog();
+        }
+
+        private void btn_contacto_Click(object sender, EventArgs e)
+        {
+            Frm_Contacto frm_contacto = new Frm_Contacto();
+            frm_contacto.ShowDialog();
         }
     }
 }
